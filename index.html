@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenRouter SubZ Translator</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f0f0f; color: #eee; padding: 16px; max-width: 600px; margin: 0 auto; }
+    h1 { color: #a3e635; font-size: 22px; margin-bottom: 6px; }
+    .card { background: #1a1a1a; border-radius: 12px; padding: 16px; margin-bottom: 14px; border: 1px solid #333; }
+    label { display: block; margin-bottom: 6px; font-size: 14px; color: #aaa; }
+    input, select, button { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #111; color: #fff; font-size: 15px; margin-bottom: 10px; }
+    button { background: #a3e635; color: #000; font-weight: bold; border: none; cursor: pointer; }
+    button:disabled { background: #555; color: #999; }
+    .progress { height: 8px; background: #333; border-radius: 4px; overflow: hidden; margin: 10px 0; }
+    .bar { height: 100%; background: #a3e635; width: 0%; transition: width 0.3s; }
+    .status { font-size: 14px; color: #a3e635; min-height: 20px; }
+    .note { font-size: 12px; color: #888; }
+  </style>
+</head>
+<body>
+  <h1>🎬 OpenRouter SubZ</h1>
+  <p class="note" style="margin-bottom:16px;">Free AI Subtitle Translator • Qwen model</p>
+
+  <div class="card">
+    <label>OpenRouter API Key</label>
+    <input type="password" id="apiKey" placeholder="sk-or-v1-...">
+    <p class="note">Key එක browser එකේ පමණක් තියෙනවා</p>
+  </div>
+
+  <div class="card">
+    <label>කුමන භාෂාවටද translate කරන්නේ?</label>
+    <select id="lang">
+      <option value="Sinhala">සිංහල (Sinhala)</option>
+      <option value="English">English</option>
+      <option value="Tamil">தமிழ் (Tamil)</option>
+      <option value="Hindi">हिन्दी (Hindi)</option>
+      <option value="Japanese">日本語 (Japanese)</option>
+      <option value="Korean">한국어 (Korean)</option>
+      <option value="Chinese">中文 (Chinese)</option>
+    </select>
+  </div>
+
+  <div class="card">
+    <label>SRT file එක upload කරන්න</label>
+    <input type="file" id="file" accept=".srt">
+    <button id="btn" disabled>Translate & Download</button>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
